@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Travel Bucket List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4b2b;
+            --secondary-color: #ff416c;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 { color: var(--text-color); font-weight: 600; margin-bottom: 20px; }
+        
+        p { 
+            color: #555; 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+            font-size: 16px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+        }
+
+        .feature-list {
+            text-align: left;
+            margin: 20px 0;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About the Project 📂</h1>
+        <p>Welcome to the <strong>Travel Bucket List</strong> application! This platform is designed to help you organize and manage your future travel destinations in one sleek directory.</p>
+        
+        <div class="feature-list">
+            <strong>Key Features:</strong>
+            <ul>
+                <li>Dynamic List Management (using local arrays)</li>
+                <li>Express.js Routing for multiple pages</li>
+                <li>EJS Templating for a clean UI</li>
+                <li>Responsive Design with modern CSS</li>
+            </ul>
+        </div>
+
+        <p>Developed for the Express Routing and Templates assignment.</p>
+        
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4b2b;
+            --secondary-color: #ff416c;
+            --text-color: #2c3e50;
+            --bg-color: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        h1 { color: var(--text-color); margin-bottom: 10px; font-weight: 600; }
+        p.sub-title { color: #7f8c8d; margin-bottom: 30px; }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 12px 20px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus { border-color: var(--primary-color); }
+
+        button {
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th { background-color: #f8f9fa; padding: 15px; text-align: left; border-bottom: 2px solid #eee; }
+        td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; color: #555; }
+
+        .about-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #f9f9f9;
+        }
+
+        .about-link {
+            color: #ff416c;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #ff416c;
+            padding: 8px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .about-link:hover {
+            background: #ff416c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Travel Bucket List</h1>
+        <p class="sub-title">Add your dream destinations below!</p>
+        
+        <form action="/add" method="POST">
+            <div class="input-group">
+                <input type="text" name="destName" placeholder="Destination Name (e.g. Kyoto)" required>
+                <input type="text" name="destCountry" placeholder="Which Country? (e.g. Japan)" required>
+                <input type="text" name="destAttraction" placeholder="What to see? (e.g. Fushimi Inari)" required>
+              
+                <button type="submit">Add to My Journey</button>
+            </div>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th>Country</th>
+                    <th>Highlight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (items.length > 0) { %>
+                    <% items.forEach(function(item) { %>
+                        <tr>
+                            <td><strong><%= item.name %></strong></td>
+                            <td><%= item.country %></td>
+                            <td>✨ <%= item.attraction %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="3" style="text-align:center; padding: 20px; color: #999;">No adventures added yet.</td>
+                    </tr>
+                <% } %>
+
+                <div class="about-section">
+            <p style="margin-bottom: 15px; color: #666;">Want to see more details?</p>
+            <a href="/about" class="about-link">Visit About Page →</a>
+        </div>
+            </tbody>
+        </table>
+
+        
+
+    </div> </body>
+</html>
